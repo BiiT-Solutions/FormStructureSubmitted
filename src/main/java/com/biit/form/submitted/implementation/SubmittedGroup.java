@@ -2,11 +2,11 @@ package com.biit.form.submitted.implementation;
 
 import java.util.List;
 
-import com.biit.form.submitted.ISubmiitedGroup;
+import com.biit.form.submitted.ISubmittedGroup;
 import com.biit.form.submitted.ISubmittedObject;
 import com.biit.form.submitted.SubmittedObject;
 
-public class SubmittedGroup extends SubmittedObject implements ISubmiitedGroup {
+public class SubmittedGroup extends SubmittedObject implements ISubmittedGroup {
 	private boolean repeatable = false;
 	private int numberOfIterations = 0;
 

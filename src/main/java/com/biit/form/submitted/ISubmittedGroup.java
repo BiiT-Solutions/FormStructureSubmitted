@@ -2,7 +2,7 @@ package com.biit.form.submitted;
 
 import java.util.List;
 
-public interface ISubmiitedGroup extends ISubmittedObject {
+public interface ISubmittedGroup extends ISubmittedObject {
 
 	/**
 	 * Is a loop.
