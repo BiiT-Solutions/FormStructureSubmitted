@@ -1,6 +1,7 @@
 package com.biit.form.submitted;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class SubmittedObject implements ISubmittedObject, Comparable<ISubmittedObject> {
@@ -183,6 +184,55 @@ public class SubmittedObject implements ISubmittedObject, Comparable<ISubmittedO
 				return compareTo(arg0.getParent());
 			}
 		}
+	}
+
+	/**
+	 * This function takes a String list of names and returns the child
+	 * referenced in the path. If the child doesn't exist returns null.
+	 * 
+	 * @param childPath
+	 * @return
+	 */
+	public ISubmittedObject getChild(List<String> childPath) {
+		if (childPath == null || childPath.isEmpty()) {
+			return null;
+		} else {
+			for (ISubmittedObject child : getChildren()) {
+				if (child.getTag().equals(childPath.get(0))) {
+					if (childPath.size() == 1) {
+						return child;
+					} else {
+						return child.getChild(childPath.subList(1, childPath.size()));
+					}
+				}
+			}
+			return null;
+		}
+	}
+
+	/**
+	 * This function returns a treeObject child by name using . as a level
+	 * separator. If the child doesn't exist returns null.
+	 * 
+	 * @param pathstring
+	 * @return
+	 */
+	public ISubmittedObject getChild(String pathstring) {
+		if (pathstring == null) {
+			return null;
+		}
+		return getChild(pathstring.split(DEFAULT_PATH_SEPARATOR));
+	}
+
+	/**
+	 * Returns a treeObject child by the names of the path to it. If the child
+	 * doesn't exist returns null.
+	 * 
+	 * @param pathStrings
+	 * @return
+	 */
+	public ISubmittedObject getChild(String... pathStrings) {
+		return getChild(Arrays.asList(pathStrings));
 	}
 
 }

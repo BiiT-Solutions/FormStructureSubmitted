@@ -46,4 +46,22 @@ public interface ISubmittedObject extends Comparable<ISubmittedObject> {
 
 	int getLevel();
 
+	/**
+	 * This function takes a String list of names and returns the child
+	 * referenced in the path. If the child doesn't exist returns null.
+	 * 
+	 * @param childPath
+	 * @return
+	 */
+	ISubmittedObject getChild(List<String> subList);
+	
+	/**
+	 * This function returns a treeObject child by name using . as a level
+	 * separator. If the child doesn't exist returns null.
+	 * 
+	 * @param pathstring
+	 * @return
+	 */
+	ISubmittedObject getChild(String pathstring);
+
 }
