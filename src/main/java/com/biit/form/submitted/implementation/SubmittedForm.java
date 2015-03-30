@@ -7,6 +7,10 @@ public class SubmittedForm extends SubmittedObject implements ISubmittedForm {
 
 	private String applicationName;
 	private String name;
+	
+	public SubmittedForm() {
+		
+	}
 
 	public SubmittedForm(String applicationName, String formName) {
 		super();
