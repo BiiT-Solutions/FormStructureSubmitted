@@ -7,11 +7,13 @@ public class SubmittedForm extends SubmittedObject implements ISubmittedForm {
 
 	private String applicationName;
 	private String name;
+	private String formVersion;
 
-	public SubmittedForm(String applicationName, String formName) {
+	public SubmittedForm(String applicationName, String formName, String formVersion) {
 		super();
-		this.name = formName;
 		this.applicationName = applicationName;
+		this.name = formName;
+		this.formVersion = formVersion;
 	}
 
 	public String getApplicationName() {
@@ -40,4 +42,8 @@ public class SubmittedForm extends SubmittedObject implements ISubmittedForm {
 		return null;
 	}
 
+	@Override
+	public String getVersion() {
+		return formVersion;
+	}
 }
