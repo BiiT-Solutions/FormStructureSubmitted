@@ -1,5 +1,8 @@
 package com.biit.form.submitted;
 
+import java.util.HashMap;
+
+
 public interface ISubmittedFormElement {
 
 	public String getName();
@@ -13,6 +16,10 @@ public interface ISubmittedFormElement {
 	public Object getVariableValue(String varName);
 
 	public Object getVariableValue(Object submmitedFormObject, String varName);
+	
+	public HashMap<String, Object> getVariablesValue(Object submmitedFormObject);
+	
+	public HashMap<String, Object> getVariablesValue();
 
 	public void setVariableValue(String varName, Object value);
 
