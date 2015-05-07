@@ -7,7 +7,5 @@ public interface ISubmittedForm extends ISubmittedObject {
 	public String getName();
 
 	public String getId();
-	
-	public String getVersion();
 
 }
