@@ -118,6 +118,25 @@ public class SubmittedObject implements ISubmittedObject, Comparable<ISubmittedO
 		}
 	}
 
+	@Override
+	public List<String> getPath() {
+		// Ignores the form.
+		if (parent == null) {
+			return new ArrayList<>();
+		} else {
+			List<String> path = new ArrayList<>();
+			List<String> parentPath = parent.getPath();
+			if (parentPath == null || parentPath.isEmpty()) {
+				path.add(getTag());
+				return path;
+			} else {
+				path.addAll(parentPath);
+				path.add(getTag());
+				return path;
+			}
+		}
+	}
+
 	/**
 	 * Get index of child
 	 * 

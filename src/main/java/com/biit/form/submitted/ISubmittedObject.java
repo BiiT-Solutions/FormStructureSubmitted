@@ -39,6 +39,12 @@ public interface ISubmittedObject extends Comparable<ISubmittedObject> {
 	 * Creates a name with all the technical names
 	 */
 	String getPathName();
+	
+	/**
+	 * Gets the path to the element as a list of tags.
+	 * @return
+	 */
+	List<String> getPath();
 
 	Integer getIndex(ISubmittedObject child);
 
