@@ -1,9 +1,13 @@
 package com.biit.form.submitted;
 
+import java.util.Set;
+
 public interface ISubmittedQuestion extends ISubmittedObject {
 
 	public void setAnswer(String value);
 
-	public String getAnswer();
+	public Set<String> getAnswers();
+
+	void setAnswers(Set<String> answers);
 
 }

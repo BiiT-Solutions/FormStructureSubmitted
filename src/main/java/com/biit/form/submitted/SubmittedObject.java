@@ -230,7 +230,7 @@ public class SubmittedObject implements ISubmittedObject, Comparable<ISubmittedO
 	}
 
 	/**
-	 * This function returns a treeObject child by name using . as a level
+	 * This function returns a treeObject child by name using '/' as a level
 	 * separator. If the child doesn't exist returns null.
 	 * 
 	 * @param pathstring
