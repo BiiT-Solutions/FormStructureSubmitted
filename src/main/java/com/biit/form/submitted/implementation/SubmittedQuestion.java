@@ -16,8 +16,10 @@ public class SubmittedQuestion extends SubmittedObject implements ISubmittedQues
 	}
 
 	@Override
-	public void setAnswer(String answer) {
-		this.answers = new HashSet<>();
+	public void addAnswer(String answer) {
+		if (this.answers == null) {
+			this.answers = new HashSet<>();
+		}
 		this.answers.add(answer);
 	}
 

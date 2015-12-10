@@ -4,7 +4,7 @@ import java.util.Set;
 
 public interface ISubmittedQuestion extends ISubmittedObject {
 
-	public void setAnswer(String value);
+	public void addAnswer(String value);
 
 	public Set<String> getAnswers();
 
