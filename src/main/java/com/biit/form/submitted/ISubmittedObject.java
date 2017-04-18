@@ -23,12 +23,13 @@ public interface ISubmittedObject extends Comparable<ISubmittedObject> {
 	void setChildren(List<ISubmittedObject> children);
 
 	/**
-	 * Makes a deep search of an element thas is from this type and has this tag.
+	 * Makes a deep search of an element that is from this type and has this
+	 * tag.
 	 */
 	ISubmittedObject getChild(Class<?> type, String tag);
 
 	/**
-	 * Return all childrens that are of this class.
+	 * Return all children that are of this class.
 	 * 
 	 * @param type
 	 * @return
@@ -39,9 +40,10 @@ public interface ISubmittedObject extends Comparable<ISubmittedObject> {
 	 * Creates a name with all the technical names
 	 */
 	String getPathName();
-	
+
 	/**
 	 * Gets the path to the element as a list of tags.
+	 * 
 	 * @return
 	 */
 	List<String> getPath();
@@ -60,7 +62,7 @@ public interface ISubmittedObject extends Comparable<ISubmittedObject> {
 	 * @return
 	 */
 	ISubmittedObject getChild(List<String> subList);
-	
+
 	/**
 	 * This function returns a treeObject child by name using . as a level
 	 * separator. If the child doesn't exist returns null.
@@ -69,5 +71,12 @@ public interface ISubmittedObject extends Comparable<ISubmittedObject> {
 	 * @return
 	 */
 	ISubmittedObject getChild(String pathstring);
+
+	/**
+	 * Returns the xpath of the object.
+	 * 
+	 * @return
+	 */
+	public String getXPath();
 
 }

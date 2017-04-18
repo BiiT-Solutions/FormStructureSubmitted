@@ -254,4 +254,13 @@ public class SubmittedObject implements ISubmittedObject, Comparable<ISubmittedO
 		return getChild(Arrays.asList(pathStrings));
 	}
 
+	@Override
+	public String getXPath() {
+		StringBuilder path = new StringBuilder();
+		if (getParent() != null) {
+			path.append(getParent().getXPath());
+		}
+		path.append("/" + this.getClass().getSimpleName() + "[@name='" + getTag() + "']");
+		return path.toString();
+	}
 }
