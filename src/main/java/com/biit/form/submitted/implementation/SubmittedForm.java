@@ -39,4 +39,9 @@ public class SubmittedForm extends SubmittedObject implements ISubmittedForm {
 		}
 		return null;
 	}
+	
+	@Override
+	public String toString() {
+		return getName();
+	}
 }
