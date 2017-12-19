@@ -84,13 +84,14 @@ public class SubmittedObject implements ISubmittedObject, Comparable<ISubmittedO
 	}
 
 	@Override
-	public List<ISubmittedObject> getChildren(Class<?> type) {
-		List<ISubmittedObject> children = new ArrayList<>();
+	@SuppressWarnings("unchecked")
+	public <T extends ISubmittedObject> List<T> getChildren(Class<T> type) {
+		List<T> children = new ArrayList<>();
 		for (ISubmittedObject child : getChildren()) {
 			if (type.isInstance(child)) {
-				children.add(child);
+				children.add((T) child);
 			}
-			children.addAll(child.getChildren(type));
+			children.addAll(child.<T> getChildren(type));
 		}
 		return children;
 	}
@@ -263,4 +264,5 @@ public class SubmittedObject implements ISubmittedObject, Comparable<ISubmittedO
 		path.append("/" + this.getClass().getSimpleName() + "[@name='" + getTag() + "']");
 		return path.toString();
 	}
+
 }

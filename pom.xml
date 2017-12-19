@@ -38,6 +38,8 @@
 		<maven-release-plugin.version>2.5.1</maven-release-plugin.version>
 		<maven-scm-provider-gitexe.version>1.9.2</maven-scm-provider-gitexe.version>
 		<project.scm.id>git</project.scm.id>
+		<!-- BiiT dependencies -->
+		<form-structure.version>[1.0,1.1)</form-structure.version>
 	</properties>
 
 	<dependencies>
@@ -47,6 +49,11 @@
 			<artifactId>testng</artifactId>
 			<version>${org.testng.version}</version>
 			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.biit</groupId>
+			<artifactId>form-structure</artifactId>
+			<version>${form-structure.version}</version>
 		</dependency>
 	</dependencies>
 	<build>

@@ -2,7 +2,9 @@ package com.biit.form.submitted;
 
 import java.util.Set;
 
-public interface ISubmittedQuestion extends ISubmittedObject {
+import com.biit.form.entity.IQuestionWithAnswers;
+
+public interface ISubmittedQuestion extends ISubmittedObject, IQuestionWithAnswers {
 
 	public void addAnswer(String value);
 
