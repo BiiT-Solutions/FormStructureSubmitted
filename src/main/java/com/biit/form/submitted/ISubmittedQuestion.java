@@ -8,6 +8,7 @@ public interface ISubmittedQuestion extends ISubmittedObject, IQuestionWithAnswe
 
 	public void addAnswer(String value);
 
+	@Override
 	public Set<String> getAnswers();
 
 	void setAnswers(Set<String> answers);
