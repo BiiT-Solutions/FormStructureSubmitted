@@ -34,7 +34,7 @@ public interface ISubmittedObject extends Comparable<ISubmittedObject> {
 	 * @param type
 	 * @return
 	 */
-	<T extends ISubmittedObject> List<T> getChildren(Class<T> type);
+	<T> List<T> getChildren(Class<T> type);
 
 	/**
 	 * Creates a name with all the technical names

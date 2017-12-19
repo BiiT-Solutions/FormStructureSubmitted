@@ -85,7 +85,7 @@ public class SubmittedObject implements ISubmittedObject, Comparable<ISubmittedO
 
 	@Override
 	@SuppressWarnings("unchecked")
-	public <T extends ISubmittedObject> List<T> getChildren(Class<T> type) {
+	public <T> List<T> getChildren(Class<T> type) {
 		List<T> children = new ArrayList<>();
 		for (ISubmittedObject child : getChildren()) {
 			if (type.isInstance(child)) {
