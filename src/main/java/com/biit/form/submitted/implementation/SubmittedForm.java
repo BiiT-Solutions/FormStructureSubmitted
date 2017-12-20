@@ -1,5 +1,8 @@
 package com.biit.form.submitted.implementation;
 
+import java.util.List;
+
+import com.biit.form.entity.IQuestionWithAnswers;
 import com.biit.form.submitted.ISubmittedForm;
 import com.biit.form.submitted.SubmittedObject;
 
@@ -39,9 +42,14 @@ public class SubmittedForm extends SubmittedObject implements ISubmittedForm {
 		}
 		return null;
 	}
-	
+
 	@Override
 	public String toString() {
 		return getName();
+	}
+
+	@Override
+	public List<IQuestionWithAnswers> getQuestionsWithAnswers() {
+		return getChildren(IQuestionWithAnswers.class);
 	}
 }

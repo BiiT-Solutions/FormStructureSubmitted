@@ -1,6 +1,8 @@
 package com.biit.form.submitted;
 
-public interface ISubmittedForm extends ISubmittedObject {
+import com.biit.form.entity.IFormWithAnswers;
+
+public interface ISubmittedForm extends ISubmittedObject, IFormWithAnswers {
 
 	public String getApplicationName();
 
