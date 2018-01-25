@@ -64,6 +64,9 @@ public class SubmittedObject implements ISubmittedObject, Comparable<ISubmittedO
 	@Override
 	public void setChildren(List<ISubmittedObject> children) {
 		this.children = children;
+		for(ISubmittedObject child : children){
+			child.setParent(this);
+		}
 	}
 
 	@Override
