@@ -11,6 +11,10 @@ public class SubmittedForm extends SubmittedObject implements ISubmittedForm {
 	private String applicationName;
 	private String name;
 
+	public SubmittedForm() {
+		super();
+	}
+
 	public SubmittedForm(String applicationName, String formName) {
 		super();
 		this.applicationName = applicationName;
