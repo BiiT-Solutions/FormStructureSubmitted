@@ -3,8 +3,12 @@ package com.biit.form.submitted.implementation;
 import java.util.List;
 
 import com.biit.form.entity.IQuestionWithAnswers;
+import com.biit.form.result.FormResult;
 import com.biit.form.submitted.ISubmittedForm;
 import com.biit.form.submitted.SubmittedObject;
+import com.biit.form.submitted.implementation.json.SubmittedObjectDeserializer;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 public class SubmittedForm extends SubmittedObject implements ISubmittedForm {
 
@@ -55,5 +59,35 @@ public class SubmittedForm extends SubmittedObject implements ISubmittedForm {
 	@Override
 	public List<IQuestionWithAnswers> getQuestionsWithAnswers() {
 		return getChildren(IQuestionWithAnswers.class);
+	}
+
+	public static FormResult fromJson(String jsonString) {
+		GsonBuilder gsonBuilder = new GsonBuilder();
+		gsonBuilder.registerTypeAdapter(SubmittedForm.class,
+				new SubmittedObjectDeserializer<SubmittedForm>(SubmittedForm.class));
+		gsonBuilder.registerTypeAdapter(SubmittedCategory.class,
+				new SubmittedObjectDeserializer<SubmittedCategory>(SubmittedCategory.class));
+		gsonBuilder.registerTypeAdapter(SubmittedGroup.class,
+				new SubmittedObjectDeserializer<SubmittedGroup>(SubmittedGroup.class));
+		gsonBuilder.registerTypeAdapter(SubmittedQuestion.class,
+				new SubmittedObjectDeserializer<SubmittedQuestion>(SubmittedQuestion.class));
+		Gson gson = gsonBuilder.create();
+
+		return gson.fromJson(jsonString, FormResult.class);
+	}
+
+	public String toJson() {
+		GsonBuilder gsonBuilder = new GsonBuilder();
+		gsonBuilder.setPrettyPrinting();
+		gsonBuilder.registerTypeAdapter(SubmittedForm.class,
+				new SubmittedObjectDeserializer<SubmittedForm>(SubmittedForm.class));
+		gsonBuilder.registerTypeAdapter(SubmittedCategory.class,
+				new SubmittedObjectDeserializer<SubmittedCategory>(SubmittedCategory.class));
+		gsonBuilder.registerTypeAdapter(SubmittedGroup.class,
+				new SubmittedObjectDeserializer<SubmittedGroup>(SubmittedGroup.class));
+		gsonBuilder.registerTypeAdapter(SubmittedQuestion.class,
+				new SubmittedObjectDeserializer<SubmittedQuestion>(SubmittedQuestion.class));
+		Gson gson = gsonBuilder.create();
+		return gson.toJson(this);
 	}
 }
