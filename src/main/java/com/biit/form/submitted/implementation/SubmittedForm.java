@@ -61,7 +61,8 @@ public class SubmittedForm extends SubmittedObject implements ISubmittedForm {
 		return getChildren(IQuestionWithAnswers.class);
 	}
 
-	public static FormResult fromJson(String jsonString) {
+	@Override
+	public FormResult fromJson(String jsonString) {
 		GsonBuilder gsonBuilder = new GsonBuilder();
 		gsonBuilder.registerTypeAdapter(SubmittedForm.class,
 				new SubmittedObjectDeserializer<SubmittedForm>(SubmittedForm.class));
@@ -76,6 +77,7 @@ public class SubmittedForm extends SubmittedObject implements ISubmittedForm {
 		return gson.fromJson(jsonString, FormResult.class);
 	}
 
+	@Override
 	public String toJson() {
 		GsonBuilder gsonBuilder = new GsonBuilder();
 		gsonBuilder.setPrettyPrinting();
