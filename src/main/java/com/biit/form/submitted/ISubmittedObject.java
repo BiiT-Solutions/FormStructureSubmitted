@@ -23,10 +23,9 @@ public interface ISubmittedObject extends Comparable<ISubmittedObject> {
 	void setChildren(List<ISubmittedObject> children);
 
 	/**
-	 * Makes a deep search of an element that is from this type and has this
-	 * tag.
+	 * Makes a deep search of an element that is from this type and has this tag.
 	 */
-	ISubmittedObject getChild(Class<?> type, String tag);
+	<T  extends ISubmittedObject> T getChild(Class<T> type, String tag);
 
 	/**
 	 * Return all children that are of this class.
@@ -34,7 +33,7 @@ public interface ISubmittedObject extends Comparable<ISubmittedObject> {
 	 * @param type
 	 * @return
 	 */
-	<T> List<T> getChildren(Class<T> type);
+	<T  extends ISubmittedObject> List<T> getChildren(Class<T> type);
 
 	/**
 	 * Creates a name with all the technical names
@@ -55,8 +54,8 @@ public interface ISubmittedObject extends Comparable<ISubmittedObject> {
 	int getLevel();
 
 	/**
-	 * This function takes a String list of names and returns the child
-	 * referenced in the path. If the child doesn't exist returns null.
+	 * This function takes a String list of names and returns the child referenced
+	 * in the path. If the child doesn't exist returns null.
 	 * 
 	 * @param childPath
 	 * @return

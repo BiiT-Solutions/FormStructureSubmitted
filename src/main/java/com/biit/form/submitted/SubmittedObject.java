@@ -64,23 +64,24 @@ public class SubmittedObject implements ISubmittedObject, Comparable<ISubmittedO
 	@Override
 	public void setChildren(List<ISubmittedObject> children) {
 		this.children = children;
-		for(ISubmittedObject child : children){
+		for (ISubmittedObject child : children) {
 			child.setParent(this);
 		}
 	}
 
 	@Override
-	public ISubmittedObject getChild(Class<?> type, String tag) {
+	@SuppressWarnings("unchecked")
+	public <T extends ISubmittedObject> T getChild(Class<T> type, String tag) {
 		// Check first level.
 		for (ISubmittedObject child : getChildren()) {
 			if (type.isInstance(child)) {
 				if (child.getTag().equals(tag)) {
-					return child;
+					return (T) child;
 				}
 			}
 			ISubmittedObject returnedChild = child.getChild(type, tag);
 			if (returnedChild != null) {
-				return returnedChild;
+				return (T) returnedChild;
 			}
 		}
 		return null;
@@ -88,13 +89,13 @@ public class SubmittedObject implements ISubmittedObject, Comparable<ISubmittedO
 
 	@Override
 	@SuppressWarnings("unchecked")
-	public <T> List<T> getChildren(Class<T> type) {
+	public <T extends ISubmittedObject> List<T> getChildren(Class<T> type) {
 		List<T> children = new ArrayList<>();
 		for (ISubmittedObject child : getChildren()) {
 			if (type.isInstance(child)) {
 				children.add((T) child);
 			}
-			children.addAll(child.<T> getChildren(type));
+			children.addAll(child.<T>getChildren(type));
 		}
 		return children;
 	}
@@ -210,8 +211,8 @@ public class SubmittedObject implements ISubmittedObject, Comparable<ISubmittedO
 	}
 
 	/**
-	 * This function takes a String list of names and returns the child
-	 * referenced in the path. If the child doesn't exist returns null.
+	 * This function takes a String list of names and returns the child referenced
+	 * in the path. If the child doesn't exist returns null.
 	 * 
 	 * @param childPath
 	 * @return
