@@ -27,15 +27,14 @@ public interface ISubmittedFormElement {
 	public String generateXML(String tabs);
 
 	/**
-	 * Returns the variable value for a element of selected type with defined
-	 * name.
+	 * Returns the variable value for a element of selected type with defined name.
 	 * 
 	 * @param type
 	 * @param treeObjectName
 	 * @param varName
 	 * @return
 	 */
-	public Object getVariableValue(Class<?> type, String treeObjectName, String varName);
+	public  <T extends ISubmittedObject> Object getVariableValue(Class<T> type, String treeObjectName, String varName);
 
 	/**
 	 * Returns the variable value of the first element of the desired type.
@@ -44,5 +43,5 @@ public interface ISubmittedFormElement {
 	 * @param varName
 	 * @return
 	 */
-	public <T> Object getVariableValue(Class<T> type, String varName);
+	public  <T extends ISubmittedObject> Object getVariableValue(Class<T> type, String varName);
 }
