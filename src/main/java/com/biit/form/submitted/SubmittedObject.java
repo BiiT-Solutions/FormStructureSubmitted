@@ -71,7 +71,7 @@ public class SubmittedObject implements ISubmittedObject, Comparable<ISubmittedO
 
 	@Override
 	@SuppressWarnings("unchecked")
-	public <T extends ISubmittedObject> T getChild(Class<T> type, String tag) {
+	public <T> T getChild(Class<T> type, String tag) {
 		// Check first level.
 		for (ISubmittedObject child : getChildren()) {
 			if (type.isInstance(child)) {
@@ -79,7 +79,7 @@ public class SubmittedObject implements ISubmittedObject, Comparable<ISubmittedO
 					return (T) child;
 				}
 			}
-			ISubmittedObject returnedChild = child.getChild(type, tag);
+			T returnedChild = child.getChild(type, tag);
 			if (returnedChild != null) {
 				return (T) returnedChild;
 			}
@@ -89,7 +89,7 @@ public class SubmittedObject implements ISubmittedObject, Comparable<ISubmittedO
 
 	@Override
 	@SuppressWarnings("unchecked")
-	public <T extends ISubmittedObject> List<T> getChildren(Class<T> type) {
+	public <T> List<T> getChildren(Class<T> type) {
 		List<T> children = new ArrayList<>();
 		for (ISubmittedObject child : getChildren()) {
 			if (type.isInstance(child)) {

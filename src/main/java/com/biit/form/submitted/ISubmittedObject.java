@@ -25,7 +25,7 @@ public interface ISubmittedObject extends Comparable<ISubmittedObject> {
 	/**
 	 * Makes a deep search of an element that is from this type and has this tag.
 	 */
-	<T  extends ISubmittedObject> T getChild(Class<T> type, String tag);
+	<T> T getChild(Class<T> type, String tag);
 
 	/**
 	 * Return all children that are of this class.
@@ -33,7 +33,7 @@ public interface ISubmittedObject extends Comparable<ISubmittedObject> {
 	 * @param type
 	 * @return
 	 */
-	<T  extends ISubmittedObject> List<T> getChildren(Class<T> type);
+	<T> List<T> getChildren(Class<T> type);
 
 	/**
 	 * Creates a name with all the technical names
