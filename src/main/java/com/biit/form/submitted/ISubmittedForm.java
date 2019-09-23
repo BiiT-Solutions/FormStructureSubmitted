@@ -1,7 +1,7 @@
 package com.biit.form.submitted;
 
 import com.biit.form.entity.IFormWithAnswers;
-import com.biit.form.result.FormResult;
+import com.biit.form.submitted.implementation.SubmittedForm;
 
 public interface ISubmittedForm extends ISubmittedObject, IFormWithAnswers {
 
@@ -13,6 +13,6 @@ public interface ISubmittedForm extends ISubmittedObject, IFormWithAnswers {
 
 	String toJson();
 
-	FormResult fromJson(String jsonString);
+	SubmittedForm fromJson(String jsonString);
 
 }

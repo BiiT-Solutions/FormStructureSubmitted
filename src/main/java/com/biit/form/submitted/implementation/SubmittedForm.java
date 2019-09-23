@@ -3,7 +3,6 @@ package com.biit.form.submitted.implementation;
 import java.util.List;
 
 import com.biit.form.entity.IQuestionWithAnswers;
-import com.biit.form.result.FormResult;
 import com.biit.form.submitted.ISubmittedForm;
 import com.biit.form.submitted.SubmittedObject;
 import com.biit.form.submitted.implementation.json.SubmittedObjectDeserializer;
@@ -65,7 +64,7 @@ public class SubmittedForm extends SubmittedObject implements ISubmittedForm {
 	}
 
 	@Override
-	public FormResult fromJson(String jsonString) {
+	public SubmittedForm fromJson(String jsonString) {
 		GsonBuilder gsonBuilder = new GsonBuilder();
 		gsonBuilder.registerTypeAdapter(SubmittedForm.class,
 				new SubmittedObjectDeserializer<SubmittedForm>(SubmittedForm.class));
@@ -76,7 +75,7 @@ public class SubmittedForm extends SubmittedObject implements ISubmittedForm {
 		gsonBuilder.registerTypeAdapter(SubmittedQuestion.class, new SubmittedQuestionDeserializer());
 		Gson gson = gsonBuilder.create();
 
-		return gson.fromJson(jsonString, FormResult.class);
+		return gson.fromJson(jsonString, SubmittedForm.class);
 	}
 
 	@Override
