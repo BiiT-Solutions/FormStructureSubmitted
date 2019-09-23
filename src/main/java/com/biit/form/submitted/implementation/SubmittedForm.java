@@ -8,6 +8,8 @@ import com.biit.form.submitted.ISubmittedForm;
 import com.biit.form.submitted.SubmittedObject;
 import com.biit.form.submitted.implementation.json.SubmittedObjectDeserializer;
 import com.biit.form.submitted.implementation.json.SubmittedObjectSerializer;
+import com.biit.form.submitted.implementation.json.SubmittedQuestionDeserializer;
+import com.biit.form.submitted.implementation.json.SubmittedQuestionSerializer;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -71,8 +73,7 @@ public class SubmittedForm extends SubmittedObject implements ISubmittedForm {
 				new SubmittedObjectDeserializer<SubmittedCategory>(SubmittedCategory.class));
 		gsonBuilder.registerTypeAdapter(SubmittedGroup.class,
 				new SubmittedObjectDeserializer<SubmittedGroup>(SubmittedGroup.class));
-		gsonBuilder.registerTypeAdapter(SubmittedQuestion.class,
-				new SubmittedObjectDeserializer<SubmittedQuestion>(SubmittedQuestion.class));
+		gsonBuilder.registerTypeAdapter(SubmittedQuestion.class, new SubmittedQuestionDeserializer());
 		Gson gson = gsonBuilder.create();
 
 		return gson.fromJson(jsonString, FormResult.class);
@@ -85,7 +86,7 @@ public class SubmittedForm extends SubmittedObject implements ISubmittedForm {
 		gsonBuilder.registerTypeAdapter(SubmittedForm.class, new SubmittedObjectSerializer<SubmittedForm>());
 		gsonBuilder.registerTypeAdapter(SubmittedCategory.class, new SubmittedObjectSerializer<SubmittedCategory>());
 		gsonBuilder.registerTypeAdapter(SubmittedGroup.class, new SubmittedObjectSerializer<SubmittedGroup>());
-		gsonBuilder.registerTypeAdapter(SubmittedQuestion.class, new SubmittedObjectSerializer<SubmittedQuestion>());
+		gsonBuilder.registerTypeAdapter(SubmittedQuestion.class, new SubmittedQuestionSerializer());
 		Gson gson = gsonBuilder.create();
 		return gson.toJson(this);
 	}

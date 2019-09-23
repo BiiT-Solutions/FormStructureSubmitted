@@ -11,7 +11,7 @@ public class SubmittedObject implements ISubmittedObject, Comparable<ISubmittedO
 	// The real name of the element
 	private String text;
 
-	private ISubmittedObject parent;
+	private transient ISubmittedObject parent;
 	private List<ISubmittedObject> children;
 
 	public SubmittedObject() {
