@@ -16,15 +16,21 @@ public class SubmittedForm extends SubmittedObject implements ISubmittedForm {
 
 	private String applicationName;
 	private String name;
+	private Integer version;
 
 	public SubmittedForm() {
 		super();
 	}
 
 	public SubmittedForm(String applicationName, String formName) {
-		super();
+		this();
 		this.applicationName = applicationName;
 		this.name = formName;
+	}
+
+	public SubmittedForm(String applicationName, String formName, Integer version) {
+		this(applicationName, formName);
+		this.version = version;
 	}
 
 	public String getApplicationName() {
@@ -92,5 +98,13 @@ public class SubmittedForm extends SubmittedObject implements ISubmittedForm {
 		gsonBuilder.registerTypeAdapter(SubmittedQuestion.class, new SubmittedQuestionSerializer());
 		Gson gson = gsonBuilder.create();
 		return gson.toJson(this);
+	}
+
+	public Integer getVersion() {
+		return version;
+	}
+
+	public void setVersion(Integer version) {
+		this.version = version;
 	}
 }
