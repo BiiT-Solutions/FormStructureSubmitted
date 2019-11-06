@@ -65,6 +65,10 @@ public class SubmittedForm extends SubmittedObject implements ISubmittedForm {
 
 	@Override
 	public SubmittedForm fromJson(String jsonString) {
+		return getFromJson(jsonString);
+	}
+
+	public static SubmittedForm getFromJson(String jsonString) {
 		GsonBuilder gsonBuilder = new GsonBuilder();
 		gsonBuilder.registerTypeAdapter(SubmittedForm.class,
 				new SubmittedObjectDeserializer<SubmittedForm>(SubmittedForm.class));
