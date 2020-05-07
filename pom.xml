@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.biit</groupId>
 	<artifactId>form-structure-submitted</artifactId>
-	<version>0.3.14-SNAPSHOT</version>
+	<version>0.3.14</version>
 	<packaging>jar</packaging>
 	<name>Form Structure Submitted Answers</name>
 	<description>Basic structure for filling up a Form</description>
@@ -25,7 +25,7 @@
 	<scm>
 		<connection>scm:git:git.biit-solutions.com:FormStructureSubmitted.git</connection>
 		<developerConnection>scm:git:git.biit-solutions.com:FormStructureSubmitted.git</developerConnection>
-		<tag>form-structure-submitted</tag>
+		<tag>form-structure-submitted-0.3.14</tag>
 	</scm>
 
 	<properties>
