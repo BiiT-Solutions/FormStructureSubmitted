@@ -66,7 +66,7 @@ public class SubmittedForm extends SubmittedObject implements ISubmittedForm {
 
 	@Override
 	public List<IQuestionWithAnswers> getQuestionsWithAnswers() {
-		return getChildren(IQuestionWithAnswers.class);
+		return getChildrenRecursive(IQuestionWithAnswers.class);
 	}
 
 	@Override

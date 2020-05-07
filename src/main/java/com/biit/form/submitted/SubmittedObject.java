@@ -89,13 +89,25 @@ public class SubmittedObject implements ISubmittedObject, Comparable<ISubmittedO
 
 	@Override
 	@SuppressWarnings("unchecked")
+	public <T> List<T> getChildrenRecursive(Class<T> type) {
+		List<T> children = new ArrayList<>();
+		for (ISubmittedObject child : getChildren()) {
+			if (type.isInstance(child)) {
+				children.add((T) child);
+			}
+			children.addAll(child.<T>getChildrenRecursive(type));
+		}
+		return children;
+	}
+
+	@Override
+	@SuppressWarnings("unchecked")
 	public <T> List<T> getChildren(Class<T> type) {
 		List<T> children = new ArrayList<>();
 		for (ISubmittedObject child : getChildren()) {
 			if (type.isInstance(child)) {
 				children.add((T) child);
 			}
-			children.addAll(child.<T>getChildren(type));
 		}
 		return children;
 	}

@@ -33,7 +33,7 @@ public interface ISubmittedObject extends Comparable<ISubmittedObject> {
 	 * @param type
 	 * @return
 	 */
-	<T> List<T> getChildren(Class<T> type);
+	<T> List<T> getChildrenRecursive(Class<T> type);
 
 	/**
 	 * Creates a name with all the technical names
@@ -77,5 +77,7 @@ public interface ISubmittedObject extends Comparable<ISubmittedObject> {
 	 * @return
 	 */
 	public String getXPath();
+
+	<T> List<T> getChildren(Class<T> type);
 
 }
