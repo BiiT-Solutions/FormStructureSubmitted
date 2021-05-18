@@ -23,8 +23,8 @@
 	</distributionManagement>
 
 	<scm>
-		<connection>scm:git:git.biit-solutions.com:FormStructureSubmitted.git</connection>
-		<developerConnection>scm:git:git.biit-solutions.com:FormStructureSubmitted.git</developerConnection>
+		<connection>scm:git:git.biit-solutions.com:BiiT/FormStructureSubmitted.git</connection>
+		<connection>scm:git:git.biit-solutions.com:BiiT/FormStructureSubmitted.git</developerConnection>
 		<tag>form-structure-submitted</tag>
 	</scm>
 
