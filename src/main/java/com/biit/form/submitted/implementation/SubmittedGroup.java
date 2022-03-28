@@ -4,7 +4,6 @@ import java.util.List;
 
 import com.biit.form.submitted.ISubmittedGroup;
 import com.biit.form.submitted.ISubmittedObject;
-import com.biit.form.submitted.SubmittedObject;
 
 public class SubmittedGroup extends SubmittedObject implements ISubmittedGroup {
 	private boolean repeatable = false;

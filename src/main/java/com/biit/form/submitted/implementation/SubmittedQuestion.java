@@ -4,10 +4,13 @@ import java.util.HashSet;
 import java.util.Set;
 
 import com.biit.form.submitted.ISubmittedQuestion;
-import com.biit.form.submitted.SubmittedObject;
 
 public class SubmittedQuestion extends SubmittedObject implements ISubmittedQuestion {
 	private Set<String> answers;
+
+	public SubmittedQuestion() {
+
+	}
 
 	public SubmittedQuestion(String tag) {
 		super();

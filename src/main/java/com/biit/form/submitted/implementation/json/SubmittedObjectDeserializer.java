@@ -1,20 +1,16 @@
 package com.biit.form.submitted.implementation.json;
 
+import com.biit.form.submitted.ISubmittedObject;
+import com.biit.form.submitted.implementation.SubmittedObject;
+import com.google.gson.*;
+import com.google.gson.reflect.TypeToken;
+
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.biit.form.submitted.ISubmittedObject;
-import com.biit.form.submitted.SubmittedObject;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.reflect.TypeToken;
-
-public class SubmittedObjectDeserializer<T extends SubmittedObject> implements JsonDeserializer<T> {
+public abstract class SubmittedObjectDeserializer<T extends SubmittedObject> implements JsonDeserializer<T> {
 
 	private Class<T> specificClass;
 
@@ -29,7 +25,7 @@ public class SubmittedObjectDeserializer<T extends SubmittedObject> implements J
 		element.setText(parseString("text", jobject, context));
 
 		// Children deserialization
-		Type listType = new TypeToken<ArrayList<SubmittedObject>>() {
+		Type listType = new TypeToken<ArrayList<ISubmittedObject>>() {
 		}.getType();
 		JsonElement childrenJson = jobject.get("children");
 		if (childrenJson != null) {
@@ -40,7 +36,7 @@ public class SubmittedObjectDeserializer<T extends SubmittedObject> implements J
 
 	protected String parseString(String name, JsonObject jobject, JsonDeserializationContext context) {
 		if (jobject.get(name) != null) {
-			return (String) context.deserialize(jobject.get(name), String.class);
+			return context.deserialize(jobject.get(name), String.class);
 		}
 		return null;
 	}

@@ -1,24 +1,18 @@
 package com.biit.form.submitted;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.io.UnsupportedEncodingException;
+import com.biit.form.submitted.implementation.SubmittedCategory;
+import com.biit.form.submitted.implementation.SubmittedForm;
+import com.biit.form.submitted.implementation.SubmittedQuestion;
+import org.testng.Assert;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
+
+import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.HashSet;
-
-import org.testng.Assert;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Test;
-
-import com.biit.form.submitted.implementation.SubmittedCategory;
-import com.biit.form.submitted.implementation.SubmittedForm;
-import com.biit.form.submitted.implementation.SubmittedQuestion;
 
 @Test(groups = "jsonTests")
 public class JsonTests {
@@ -60,9 +54,10 @@ public class JsonTests {
 	}
 
 	@Test(dependsOnMethods = "serialize")
-	public void deserialize() throws UnsupportedEncodingException, IOException {
+	public void deserialize() throws IOException {
 		final String jsonText = new String(Files.readAllBytes(Paths.get(OUTPUT_SERIALIZATION_PATH)),
 				StandardCharsets.UTF_8.name());
+		SubmittedForm form = SubmittedForm.getFromJson(jsonText);
 		Assert.assertNotNull(form.getChild(SubmittedCategory.class, "Category1"));
 		Assert.assertNotNull(form.getChild(SubmittedQuestion.class, "Question1"));
 		Assert.assertTrue(form.getChild(SubmittedQuestion.class, "Question1").getAnswers().contains("Answer1"));

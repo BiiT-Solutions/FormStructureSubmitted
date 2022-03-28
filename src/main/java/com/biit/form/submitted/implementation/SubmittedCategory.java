@@ -1,9 +1,11 @@
 package com.biit.form.submitted.implementation;
 
 import com.biit.form.submitted.ISubmittedCategory;
-import com.biit.form.submitted.SubmittedObject;
 
 public class SubmittedCategory extends SubmittedObject implements ISubmittedCategory {
+	public SubmittedCategory() {
+
+	}
 
 	public SubmittedCategory(String tag) {
 		super();
