@@ -1,24 +1,17 @@
 {
-  "class": "com.biit.form.submitted.implementation.SubmittedForm",
-  "tag": "Form",
-  "text": "This is a form",
-  "children": [
-    {
-      "class": "com.biit.form.submitted.implementation.SubmittedCategory",
-      "tag": "Category1",
-      "text": "This is a category",
-      "children": [
-        {
-          "class": "com.biit.form.submitted.implementation.SubmittedQuestion",
-          "tag": "Question1",
-          "text": "This is a question",
-          "children": [],
-          "answers": [
-            "answer1",
-            "answer2"
-          ]
-        }
-      ]
-    }
-  ]
+  "class" : "com.biit.form.submitted.implementation.SubmittedForm",
+  "tag" : "Form",
+  "text" : "This is a form",
+  "children" : [ {
+    "class" : "com.biit.form.submitted.implementation.SubmittedCategory",
+    "tag" : "Category1",
+    "text" : "This is a category",
+    "children" : [ {
+      "class" : "com.biit.form.submitted.implementation.SubmittedQuestion",
+      "tag" : "Question1",
+      "text" : "This is a question",
+      "children" : [ ],
+      "answers" : [ "answer1", "answer2" ]
+    } ]
+  } ]
 }

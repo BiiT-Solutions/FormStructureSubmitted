@@ -13,12 +13,14 @@ import com.biit.form.submitted.serialization.gson.SubmittedGroupSerializer;
 import com.biit.form.submitted.serialization.gson.SubmittedQuestionDeserializer;
 import com.biit.form.submitted.serialization.gson.SubmittedQuestionSerializer;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import java.util.List;
 
 @JsonDeserialize(using = com.biit.form.submitted.serialization.jackson.SubmittedFormDeserializer.class)
+@JsonSerialize(using = com.biit.form.submitted.serialization.jackson.SubmittedFormSerializer.class)
 public class SubmittedForm extends SubmittedObject implements ISubmittedForm {
 
     private String applicationName;
