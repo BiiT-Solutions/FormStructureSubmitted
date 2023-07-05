@@ -15,3 +15,4 @@ tmp
 styles.css
 /abcd-core/src/test/resources/generatedRules.drl
 /target
+.attach_pid*

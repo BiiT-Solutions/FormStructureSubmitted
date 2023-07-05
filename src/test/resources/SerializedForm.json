@@ -12,7 +12,11 @@
           "class": "com.biit.form.submitted.implementation.SubmittedQuestion",
           "tag": "Question1",
           "text": "This is a question",
-          "children": []
+          "children": [],
+          "answers": [
+            "answer1",
+            "answer2"
+          ]
         }
       ]
     }

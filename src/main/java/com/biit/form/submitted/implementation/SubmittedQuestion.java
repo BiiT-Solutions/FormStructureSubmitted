@@ -1,10 +1,12 @@
 package com.biit.form.submitted.implementation;
 
 import com.biit.form.submitted.ISubmittedQuestion;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 import java.util.HashSet;
 import java.util.Set;
 
+@JsonDeserialize(using = com.biit.form.submitted.serialization.jackson.SubmittedQuestionDeserializer.class)
 public class SubmittedQuestion extends SubmittedObject implements ISubmittedQuestion {
     private Set<String> answers;
 

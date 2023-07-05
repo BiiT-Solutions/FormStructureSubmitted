@@ -1,11 +1,13 @@
 package com.biit.form.submitted.implementation;
 
 import com.biit.form.submitted.ISubmittedObject;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+@JsonDeserialize(using = com.biit.form.submitted.serialization.jackson.SubmittedObjectDeserializer.class)
 public class SubmittedObject implements ISubmittedObject, Comparable<ISubmittedObject> {
     protected static final String DEFAULT_PATH_SEPARATOR = "/";
     // Tags of the Orbeon form

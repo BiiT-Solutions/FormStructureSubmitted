@@ -14,8 +14,8 @@ import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.HashSet;
 
-@Test(groups = "jsonTests")
-public class JsonTests {
+@Test(groups = "gsonTests")
+public class GsonTests {
 	private static final String OUTPUT_SERIALIZATION_PATH = System.getProperty("java.io.tmpdir") + File.separator
 			+ "SerializedSubmittedForm.json";
 

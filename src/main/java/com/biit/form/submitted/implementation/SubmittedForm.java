@@ -3,20 +3,22 @@ package com.biit.form.submitted.implementation;
 import com.biit.form.entity.IQuestionWithAnswers;
 import com.biit.form.submitted.ISubmittedForm;
 import com.biit.form.submitted.ISubmittedObject;
-import com.biit.form.submitted.implementation.json.InterfaceAdapter;
-import com.biit.form.submitted.implementation.json.SubmittedCategoryDeserializer;
-import com.biit.form.submitted.implementation.json.SubmittedCategorySerializer;
-import com.biit.form.submitted.implementation.json.SubmittedFormDeserializer;
-import com.biit.form.submitted.implementation.json.SubmittedFormSerializer;
-import com.biit.form.submitted.implementation.json.SubmittedGroupDeserializer;
-import com.biit.form.submitted.implementation.json.SubmittedGroupSerializer;
-import com.biit.form.submitted.implementation.json.SubmittedQuestionDeserializer;
-import com.biit.form.submitted.implementation.json.SubmittedQuestionSerializer;
+import com.biit.form.submitted.serialization.gson.InterfaceAdapter;
+import com.biit.form.submitted.serialization.gson.SubmittedCategoryDeserializer;
+import com.biit.form.submitted.serialization.gson.SubmittedCategorySerializer;
+import com.biit.form.submitted.serialization.gson.SubmittedFormDeserializer;
+import com.biit.form.submitted.serialization.gson.SubmittedFormSerializer;
+import com.biit.form.submitted.serialization.gson.SubmittedGroupDeserializer;
+import com.biit.form.submitted.serialization.gson.SubmittedGroupSerializer;
+import com.biit.form.submitted.serialization.gson.SubmittedQuestionDeserializer;
+import com.biit.form.submitted.serialization.gson.SubmittedQuestionSerializer;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import java.util.List;
 
+@JsonDeserialize(using = com.biit.form.submitted.serialization.jackson.SubmittedFormDeserializer.class)
 public class SubmittedForm extends SubmittedObject implements ISubmittedForm {
 
     private String applicationName;

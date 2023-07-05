@@ -4,11 +4,13 @@
 		preserve-order="true">
 		<groups>
 			<run>
-				<include name="jsonTests" />
+				<include name="gsonTests" />
+				<include name="jacksonTests" />
 			</run>
 		</groups>
 		<classes>
-			<class name="com.biit.form.submitted.JsonTests" />
+			<class name="com.biit.form.submitted.GsonTests" />
+			<class name="com.biit.form.submitted.JacksonTests" />
 		</classes>
 	</test>
 </suite>

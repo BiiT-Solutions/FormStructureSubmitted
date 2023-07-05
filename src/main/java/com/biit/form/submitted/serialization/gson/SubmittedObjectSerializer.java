@@ -1,4 +1,4 @@
-package com.biit.form.submitted.implementation.json;
+package com.biit.form.submitted.serialization.gson;
 
 import com.biit.form.submitted.implementation.SubmittedObject;
 import com.google.gson.JsonElement;
