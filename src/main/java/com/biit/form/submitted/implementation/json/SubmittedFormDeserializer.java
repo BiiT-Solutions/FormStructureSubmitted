@@ -1,17 +1,16 @@
 package com.biit.form.submitted.implementation.json;
 
-import com.biit.form.submitted.implementation.SubmittedCategory;
 import com.biit.form.submitted.implementation.SubmittedForm;
 import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonElement;
 
 public class SubmittedFormDeserializer extends SubmittedObjectDeserializer<SubmittedForm> {
 
-	public SubmittedFormDeserializer() {
-		super(SubmittedForm.class);
-	}
+    public SubmittedFormDeserializer() {
+        super(SubmittedForm.class);
+    }
 
-	public void deserialize(JsonElement json, JsonDeserializationContext context, SubmittedForm element) {
-		super.deserialize(json, context, element);
-	}
+    public void deserialize(JsonElement json, JsonDeserializationContext context, SubmittedForm element) {
+        super.deserialize(json, context, element);
+    }
 }

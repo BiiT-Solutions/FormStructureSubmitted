@@ -1,16 +1,16 @@
 package com.biit.form.submitted;
 
-import java.util.Set;
-
 import com.biit.form.entity.IQuestionWithAnswers;
+
+import java.util.Set;
 
 public interface ISubmittedQuestion extends ISubmittedObject, IQuestionWithAnswers {
 
-	public void addAnswer(String value);
+    void addAnswer(String value);
 
-	@Override
-	public Set<String> getAnswers();
+    @Override
+    Set<String> getAnswers();
 
-	void setAnswers(Set<String> answers);
+    void setAnswers(Set<String> answers);
 
 }

@@ -13,8 +13,8 @@ public class SubmittedObject implements ISubmittedObject, Comparable<ISubmittedO
     // The real name of the element
     private String text;
 
-    private transient ISubmittedObject parent;
-    private List<ISubmittedObject> children;
+    private transient SubmittedObject parent;
+    private List<SubmittedObject> children;
 
     public SubmittedObject() {
         children = new ArrayList<>();
@@ -48,23 +48,23 @@ public class SubmittedObject implements ISubmittedObject, Comparable<ISubmittedO
     }
 
     @Override
-    public void setParent(ISubmittedObject parent) {
+    public void setParent(SubmittedObject parent) {
         this.parent = parent;
     }
 
     @Override
-    public void addChild(ISubmittedObject child) {
+    public void addChild(SubmittedObject child) {
         children.add(child);
         child.setParent(this);
     }
 
     @Override
-    public List<ISubmittedObject> getChildren() {
+    public List<SubmittedObject> getChildren() {
         return children;
     }
 
     @Override
-    public void setChildren(List<ISubmittedObject> children) {
+    public void setChildren(List<SubmittedObject> children) {
         this.children = children;
         for (ISubmittedObject child : children) {
             child.setParent(this);
@@ -82,7 +82,7 @@ public class SubmittedObject implements ISubmittedObject, Comparable<ISubmittedO
                         return (T) child;
                     }
                 }
-                T returnedChild = child.getChild(type, tag);
+                final T returnedChild = child.getChild(type, tag);
                 if (returnedChild != null) {
                     return (T) returnedChild;
                 }
@@ -94,7 +94,7 @@ public class SubmittedObject implements ISubmittedObject, Comparable<ISubmittedO
     @Override
     @SuppressWarnings("unchecked")
     public <T> List<T> getChildrenRecursive(Class<T> type) {
-        List<T> children = new ArrayList<>();
+        final List<T> children = new ArrayList<>();
         for (ISubmittedObject child : getChildren()) {
             if (type.isInstance(child)) {
                 children.add((T) child);
@@ -107,7 +107,7 @@ public class SubmittedObject implements ISubmittedObject, Comparable<ISubmittedO
     @Override
     @SuppressWarnings("unchecked")
     public <T> List<T> getChildren(Class<T> type) {
-        List<T> children = new ArrayList<>();
+        final List<T> children = new ArrayList<>();
         for (ISubmittedObject child : getChildren()) {
             if (type.isInstance(child)) {
                 children.add((T) child);
@@ -130,7 +130,7 @@ public class SubmittedObject implements ISubmittedObject, Comparable<ISubmittedO
         if (parent == null) {
             return null;
         } else {
-            String parentPath = parent.getPathName();
+            final String parentPath = parent.getPathName();
             if (parentPath == null) {
                 return getTag();
             } else {
@@ -145,8 +145,8 @@ public class SubmittedObject implements ISubmittedObject, Comparable<ISubmittedO
         if (parent == null) {
             return new ArrayList<>();
         } else {
-            List<String> path = new ArrayList<>();
-            List<String> parentPath = parent.getPath();
+            final List<String> path = new ArrayList<>();
+            final List<String> parentPath = parent.getPath();
             if (parentPath == null || parentPath.isEmpty()) {
                 path.add(getTag());
                 return path;
@@ -193,8 +193,8 @@ public class SubmittedObject implements ISubmittedObject, Comparable<ISubmittedO
             return 1;
         }
         // None of them are root.
-        int levelThis = getLevel();
-        int levelArg0 = arg0.getLevel();
+        final int levelThis = getLevel();
+        final int levelArg0 = arg0.getLevel();
 
         if (levelThis == levelArg0) {
             // Both are in the same level
@@ -277,7 +277,7 @@ public class SubmittedObject implements ISubmittedObject, Comparable<ISubmittedO
 
     @Override
     public String getXPath() {
-        StringBuilder path = new StringBuilder();
+        final StringBuilder path = new StringBuilder();
         if (getParent() != null) {
             path.append(getParent().getXPath());
         }

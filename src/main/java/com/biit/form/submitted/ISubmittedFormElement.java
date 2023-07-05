@@ -4,44 +4,44 @@ import java.util.HashMap;
 
 public interface ISubmittedFormElement {
 
-	public String getName();
+    String getName();
 
-	public String getOriginalValue();
+    String getOriginalValue();
 
-	public boolean isVariableDefined(String varName);
+    boolean isVariableDefined(String varName);
 
-	public boolean isVariableDefined(Object submittedFormTreeObject, String varName);
+    boolean isVariableDefined(Object submittedFormTreeObject, String varName);
 
-	public Object getVariableValue(String varName);
+    Object getVariableValue(String varName);
 
-	public Object getVariableValue(Object submmitedFormObject, String varName);
+    Object getVariableValue(Object submmitedFormObject, String varName);
 
-	public HashMap<String, Object> getVariablesValue(Object submmitedFormObject);
+    HashMap<String, Object> getVariablesValue(Object submmitedFormObject);
 
-	public HashMap<String, Object> getVariablesValue();
+    HashMap<String, Object> getVariablesValue();
 
-	public void setVariableValue(String varName, Object value);
+    void setVariableValue(String varName, Object value);
 
-	public void setVariableValue(Object submmitedFormObject, String varName, Object value);
+    void setVariableValue(Object submmitedFormObject, String varName, Object value);
 
-	public String generateXML(String tabs);
+    String generateXML(String tabs);
 
-	/**
-	 * Returns the variable value for a element of selected type with defined name.
-	 * 
-	 * @param type
-	 * @param treeObjectName
-	 * @param varName
-	 * @return
-	 */
-	public  <T extends ISubmittedObject> Object getVariableValue(Class<T> type, String treeObjectName, String varName);
+    /**
+     * Returns the variable value for a element of selected type with defined name.
+     *
+     * @param type
+     * @param treeObjectName
+     * @param varName
+     * @return
+     */
+    <T extends ISubmittedObject> Object getVariableValue(Class<T> type, String treeObjectName, String varName);
 
-	/**
-	 * Returns the variable value of the first element of the desired type.
-	 * 
-	 * @param type
-	 * @param varName
-	 * @return
-	 */
-	public  <T extends ISubmittedObject> Object getVariableValue(Class<T> type, String varName);
+    /**
+     * Returns the variable value of the first element of the desired type.
+     *
+     * @param type
+     * @param varName
+     * @return
+     */
+    <T extends ISubmittedObject> Object getVariableValue(Class<T> type, String varName);
 }

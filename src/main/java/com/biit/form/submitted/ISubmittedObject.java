@@ -1,83 +1,84 @@
 package com.biit.form.submitted;
 
+import com.biit.form.submitted.implementation.SubmittedObject;
+
 import java.util.List;
 
 public interface ISubmittedObject extends Comparable<ISubmittedObject> {
 
-	String getTag();
+    String getTag();
 
-	void setTag(String tag);
+    void setTag(String tag);
 
-	String getText();
+    String getText();
 
-	void setText(String text);
+    void setText(String text);
 
-	ISubmittedObject getParent();
+    ISubmittedObject getParent();
 
-	void setParent(ISubmittedObject parent);
+    void setParent(SubmittedObject parent);
 
-	void addChild(ISubmittedObject child);
+    void addChild(SubmittedObject child);
 
-	List<ISubmittedObject> getChildren();
+    List<SubmittedObject> getChildren();
 
-	void setChildren(List<ISubmittedObject> children);
+    void setChildren(List<SubmittedObject> children);
 
-	/**
-	 * Makes a deep search of an element that is from this type and has this tag.
-	 */
-	<T> T getChild(Class<T> type, String tag);
+    /**
+     * Makes a deep search of an element that is from this type and has this tag.
+     */
+    <T> T getChild(Class<T> type, String tag);
 
-	/**
-	 * Return all children that are of this class.
-	 * 
-	 * @param type
-	 * @return
-	 */
-	<T> List<T> getChildrenRecursive(Class<T> type);
+    /**
+     * Return all children that are of this class.
+     *
+     * @param type
+     * @return
+     */
+    <T> List<T> getChildrenRecursive(Class<T> type);
 
-	/**
-	 * Creates a name with all the technical names
-	 */
-	String getPathName();
+    /**
+     * Creates a name with all the technical names
+     */
+    String getPathName();
 
-	/**
-	 * Gets the path to the element as a list of tags.
-	 * 
-	 * @return
-	 */
-	List<String> getPath();
+    /**
+     * Gets the path to the element as a list of tags.
+     *
+     * @return
+     */
+    List<String> getPath();
 
-	Integer getIndex(ISubmittedObject child);
+    Integer getIndex(ISubmittedObject child);
 
-	int compareTo(ISubmittedObject arg0);
+    int compareTo(ISubmittedObject arg0);
 
-	int getLevel();
+    int getLevel();
 
-	/**
-	 * This function takes a String list of names and returns the child referenced
-	 * in the path. If the child doesn't exist returns null.
-	 * 
-	 * @param childPath
-	 * @return
-	 */
-	ISubmittedObject getChild(List<String> subList);
+    /**
+     * This function takes a String list of names and returns the child referenced
+     * in the path. If the child doesn't exist returns null.
+     *
+     * @return
+     */
+    ISubmittedObject getChild(List<String> subList);
 
-	/**
-	 * This function returns a treeObject child by name using . as a level
-	 * separator. If the child doesn't exist returns null.
-	 * 
-	 * @param pathstring
-	 * @return
-	 */
-	ISubmittedObject getChild(String pathstring);
+    /**
+     * This function returns a treeObject child by name using '.' as a level
+     * separator. If the child doesn't exist returns null.
+     *
+     * @param pathstring
+     * @return
+     */
+    ISubmittedObject getChild(String pathstring);
 
-	/**
-	 * Returns the xpath of the object.
-	 * 
-	 * @return
-	 */
-	public String getXPath();
+    /**
+     * Returns the xpath of the object.
+     *
+     * @return
+     */
+    String getXPath();
 
-	<T> List<T> getChildren(Class<T> type);
+    <T> List<T> getChildren(Class<T> type);
 
 }

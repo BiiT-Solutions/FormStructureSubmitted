@@ -6,11 +6,11 @@ import com.google.gson.JsonElement;
 
 public class SubmittedGroupDeserializer extends SubmittedObjectDeserializer<SubmittedGroup> {
 
-	public SubmittedGroupDeserializer() {
-		super(SubmittedGroup.class);
-	}
+    public SubmittedGroupDeserializer() {
+        super(SubmittedGroup.class);
+    }
 
-	public void deserialize(JsonElement json, JsonDeserializationContext context, SubmittedGroup element) {
-		super.deserialize(json, context, element);
-	}
+    public void deserialize(JsonElement json, JsonDeserializationContext context, SubmittedGroup element) {
+        super.deserialize(json, context, element);
+    }
 }

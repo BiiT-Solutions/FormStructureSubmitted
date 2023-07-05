@@ -5,14 +5,14 @@ import com.biit.form.submitted.implementation.SubmittedForm;
 
 public interface ISubmittedForm extends ISubmittedObject, IFormWithAnswers {
 
-	public String getApplicationName();
+    String getApplicationName();
 
-	public String getName();
+    String getName();
 
-	public String getId();
+    String getId();
 
-	String toJson();
+    String toJson();
 
-	SubmittedForm fromJson(String jsonString);
+    SubmittedForm fromJson(String jsonString);
 
 }
