@@ -11,5 +11,7 @@ public class SubmittedGroupDeserializer extends SubmittedObjectDeserializer<Subm
     @Override
     public void deserialize(SubmittedGroup element, JsonNode jsonObject, DeserializationContext context) throws IOException {
         super.deserialize(element, jsonObject, context);
+        element.setRepeatable(parseBoolean("repeatable", jsonObject));
+        element.setNumberOfIterations(parseInteger("numberOfIterations", jsonObject));
     }
 }

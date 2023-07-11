@@ -10,5 +10,7 @@ public class SubmittedGroupSerializer extends SubmittedObjectSerializer<Submitte
     @Override
     public void serialize(SubmittedGroup src, JsonGenerator jgen) throws IOException {
         super.serialize(src, jgen);
+        jgen.writeStringField("repeatable", String.valueOf(src.isRepeatable()));
+        jgen.writeStringField("numberOfIterations", String.valueOf(src.getNumberOfIterations()));
     }
 }

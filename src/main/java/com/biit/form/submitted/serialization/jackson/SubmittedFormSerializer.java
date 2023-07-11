@@ -10,5 +10,11 @@ public class SubmittedFormSerializer extends SubmittedObjectSerializer<Submitted
     @Override
     public void serialize(SubmittedForm src, JsonGenerator jgen) throws IOException {
         super.serialize(src, jgen);
+        if (src.getApplicationName() != null) {
+            jgen.writeStringField("applicationName", src.getApplicationName());
+        }
+        if (src.getOrganizationId() != null) {
+            jgen.writeStringField("organizationId", String.valueOf(src.getOrganizationId()));
+        }
     }
 }

@@ -16,6 +16,7 @@ public class SubmittedForm extends SubmittedObject implements ISubmittedForm {
     private String applicationName;
     private String name;
     private Integer version;
+    private Long organizationId;
 
     public SubmittedForm() {
         super();
@@ -56,6 +57,18 @@ public class SubmittedForm extends SubmittedObject implements ISubmittedForm {
             return this.getApplicationName() + "/" + this.getName();
         }
         return null;
+    }
+
+    public void setApplicationName(String applicationName) {
+        this.applicationName = applicationName;
+    }
+
+    public Long getOrganizationId() {
+        return organizationId;
+    }
+
+    public void setOrganizationId(Long organizationId) {
+        this.organizationId = organizationId;
     }
 
     @Override
