@@ -83,15 +83,15 @@ public class SubmittedForm extends SubmittedObject implements ISubmittedForm {
 
     @Override
     public SubmittedForm fromJson(String jsonString) {
-        return getFromJson(jsonString);
-    }
-
-    public static SubmittedForm getFromJson(String jsonString) {
         try {
-            return ObjectMapperFactory.getObjectMapper().readValue(jsonString, SubmittedForm.class);
+            return getFromJson(jsonString);
         } catch (JsonProcessingException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public static SubmittedForm getFromJson(String jsonString) throws JsonProcessingException {
+        return ObjectMapperFactory.getObjectMapper().readValue(jsonString, SubmittedForm.class);
     }
 
     @Override
