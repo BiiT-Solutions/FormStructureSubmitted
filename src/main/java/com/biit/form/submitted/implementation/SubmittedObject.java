@@ -6,6 +6,7 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.LinkedHashSet;
 import java.util.List;
 
 @JsonDeserialize(using = com.biit.form.submitted.serialization.jackson.SubmittedObjectDeserializer.class)
@@ -93,6 +94,29 @@ public class SubmittedObject implements ISubmittedObject, Comparable<ISubmittedO
             }
         }
         return null;
+    }
+
+    /**
+     * Returns a linkedHashSet with all the children in the current hierarchy that
+     * are instance of the filter type in appearance order.
+     *
+     * @param filter
+     * @return
+     */
+    @SuppressWarnings("unchecked")
+    public <T extends SubmittedObject> LinkedHashSet<T> getAllChildrenInHierarchy(Class<T> filter) {
+        final LinkedHashSet<T> selectedChildren = new LinkedHashSet<>();
+        for (SubmittedObject child : getChildren()) {
+            if (filter == null || filter.isInstance(child)) {
+                selectedChildren.add((T) child);
+            }
+            selectedChildren.addAll(child.getAllChildrenInHierarchy(filter));
+        }
+        return selectedChildren;
+    }
+
+    public LinkedHashSet<SubmittedObject> getAllChildrenInHierarchy() {
+        return getAllChildrenInHierarchy(null);
     }
 
     @Override

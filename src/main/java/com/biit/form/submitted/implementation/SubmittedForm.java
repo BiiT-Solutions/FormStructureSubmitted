@@ -3,6 +3,8 @@ package com.biit.form.submitted.implementation;
 import com.biit.form.entity.IQuestionWithAnswers;
 import com.biit.form.jackson.serialization.ObjectMapperFactory;
 import com.biit.form.submitted.ISubmittedForm;
+import com.fasterxml.jackson.annotation.JsonAlias;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
@@ -14,6 +16,8 @@ import java.util.List;
 public class SubmittedForm extends SubmittedObject implements ISubmittedForm {
 
     private String applicationName;
+    @JsonAlias("name")
+    @JsonProperty("tag")
     private String name;
     private Integer version;
     private Long organizationId;
@@ -109,5 +113,9 @@ public class SubmittedForm extends SubmittedObject implements ISubmittedForm {
 
     public void setVersion(Integer version) {
         this.version = version;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

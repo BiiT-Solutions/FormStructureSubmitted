@@ -13,5 +13,6 @@ public class SubmittedFormDeserializer extends SubmittedObjectDeserializer<Submi
         super.deserialize(element, jsonObject, context);
         element.setApplicationName(parseString("applicationName", jsonObject));
         element.setOrganizationId(parseLong("organizationId", jsonObject));
+        element.setVersion(parseInteger("version", jsonObject));
     }
 }

@@ -1,8 +1,6 @@
 package com.biit.form.submitted;
 
 import com.biit.form.jackson.serialization.ObjectMapperFactory;
-import com.biit.form.result.FormResult;
-import com.biit.form.result.QuestionWithValueResult;
 import com.biit.form.submitted.implementation.SubmittedForm;
 import com.biit.form.submitted.implementation.SubmittedQuestion;
 import org.testng.Assert;
