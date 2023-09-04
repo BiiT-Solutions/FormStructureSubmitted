@@ -12,6 +12,10 @@ public class SubmittedGroup extends SubmittedObject implements ISubmittedGroup {
     private boolean repeatable = false;
     private int numberOfIterations = 0;
 
+    public SubmittedGroup() {
+        super();
+    }
+
     public SubmittedGroup(String tag) {
         super();
         setTag(tag);
