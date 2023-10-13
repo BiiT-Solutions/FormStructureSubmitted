@@ -1,6 +1,6 @@
 package com.biit.form.submitted;
 
-import java.util.HashMap;
+import java.util.Map;
 
 public interface ISubmittedFormElement {
 
@@ -10,19 +10,19 @@ public interface ISubmittedFormElement {
 
     boolean isVariableDefined(String varName);
 
-    boolean isVariableDefined(Object submittedFormTreeObject, String varName);
+    boolean isVariableDefined(ISubmittedObject submittedFormTreeObject, String varName);
 
     Object getVariableValue(String varName);
 
-    Object getVariableValue(Object submmitedFormObject, String varName);
+    Object getVariableValue(ISubmittedObject submmitedFormObject, String varName);
 
-    HashMap<String, Object> getVariablesValue(Object submmitedFormObject);
+    Map<String, Object> getVariablesValue(ISubmittedObject submittedFormObject);
 
-    HashMap<String, Object> getVariablesValue();
+    Map<String, Object> getVariablesValue();
 
     void setVariableValue(String varName, Object value);
 
-    void setVariableValue(Object submmitedFormObject, String varName, Object value);
+    void setVariableValue(ISubmittedObject submittedFormObject, String varName, Object value);
 
     String generateXML(String tabs);
 
