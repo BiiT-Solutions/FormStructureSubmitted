@@ -21,6 +21,7 @@ public class SubmittedForm extends SubmittedObject implements ISubmittedForm {
     private String name;
     private Integer version;
     private Long organizationId;
+    private String submittedBy;
 
     public SubmittedForm() {
         super();
@@ -117,5 +118,14 @@ public class SubmittedForm extends SubmittedObject implements ISubmittedForm {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Override
+    public String getSubmittedBy() {
+        return submittedBy;
+    }
+
+    public void setSubmittedBy(String submittedBy) {
+        this.submittedBy = submittedBy;
     }
 }

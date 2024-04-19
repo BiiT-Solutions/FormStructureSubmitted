@@ -15,4 +15,6 @@ public interface ISubmittedForm extends ISubmittedObject, IFormWithAnswers {
 
     SubmittedForm fromJson(String jsonString);
 
+    String getSubmittedBy();
+
 }

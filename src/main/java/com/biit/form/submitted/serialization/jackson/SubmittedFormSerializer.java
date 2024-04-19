@@ -19,5 +19,8 @@ public class SubmittedFormSerializer extends SubmittedObjectSerializer<Submitted
         if (src.getVersion() != null) {
             jgen.writeStringField("version", String.valueOf(src.getVersion()));
         }
+        if (src.getSubmittedBy() != null) {
+            jgen.writeStringField("submittedBy", String.valueOf(src.getSubmittedBy()));
+        }
     }
 }
