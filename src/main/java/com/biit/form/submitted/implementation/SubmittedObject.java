@@ -307,9 +307,9 @@ public class SubmittedObject implements ISubmittedObject, Comparable<ISubmittedO
     public String getXPath() {
         final StringBuilder path = new StringBuilder();
         if (getParent() != null) {
-            path.append(getParent().getXPath());
+            path.append(getParent().getXPath()).append("/children");
         }
-        path.append("/" + this.getClass().getSimpleName() + "[@name='" + getTag() + "']");
+        path.append("/").append(this.getClass().getSimpleName()).append("[@name='").append(getTag()).append("']");
         return path.toString();
     }
 
