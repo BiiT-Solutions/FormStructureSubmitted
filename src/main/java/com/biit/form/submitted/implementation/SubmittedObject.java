@@ -256,7 +256,7 @@ public class SubmittedObject implements ISubmittedObject, Comparable<ISubmittedO
 
     /**
      * This function takes a String list of names and returns the child referenced
-     * in the path. If the child doesn't exist returns null.
+     * in the path. If the child doesn't exist, returns null.
      *
      * @param childPath
      * @return
@@ -280,7 +280,7 @@ public class SubmittedObject implements ISubmittedObject, Comparable<ISubmittedO
 
     /**
      * This function returns a treeObject child by name using '/' as a level
-     * separator. If the child doesn't exist returns null.
+     * separator. If the child doesn't exist, returns null.
      *
      * @param pathstring
      * @return
@@ -294,7 +294,7 @@ public class SubmittedObject implements ISubmittedObject, Comparable<ISubmittedO
 
     /**
      * Returns a treeObject child by the names of the path to it. If the child
-     * doesn't exist returns null.
+     * doesn't exist, returns null.
      *
      * @param pathStrings
      * @return

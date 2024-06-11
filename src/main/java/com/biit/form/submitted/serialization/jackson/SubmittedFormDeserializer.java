@@ -12,7 +12,7 @@ public class SubmittedFormDeserializer extends SubmittedObjectDeserializer<Submi
     public void deserialize(SubmittedForm element, JsonNode jsonObject, DeserializationContext context) throws IOException {
         super.deserialize(element, jsonObject, context);
         element.setApplicationName(parseString("applicationName", jsonObject));
-        element.setOrganizationId(parseLong("organizationId", jsonObject));
+        element.setOrganization(parseString("organization", jsonObject));
         element.setVersion(parseInteger("version", jsonObject));
         element.setSubmittedBy(parseString("submittedBy", jsonObject));
     }

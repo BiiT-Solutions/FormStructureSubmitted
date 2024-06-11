@@ -20,7 +20,7 @@ public class SubmittedForm extends SubmittedObject implements ISubmittedForm {
     @JsonProperty("tag")
     private String name;
     private Integer version;
-    private Long organizationId;
+    private String organization;
     private String submittedBy;
 
     public SubmittedForm() {
@@ -68,12 +68,12 @@ public class SubmittedForm extends SubmittedObject implements ISubmittedForm {
         this.applicationName = applicationName;
     }
 
-    public Long getOrganizationId() {
-        return organizationId;
+    public String getOrganization() {
+        return organization;
     }
 
-    public void setOrganizationId(Long organizationId) {
-        this.organizationId = organizationId;
+    public void setOrganization(String organization) {
+        this.organization = organization;
     }
 
     @Override

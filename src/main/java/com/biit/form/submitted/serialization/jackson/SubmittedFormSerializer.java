@@ -13,8 +13,8 @@ public class SubmittedFormSerializer extends SubmittedObjectSerializer<Submitted
         if (src.getApplicationName() != null) {
             jgen.writeStringField("applicationName", src.getApplicationName());
         }
-        if (src.getOrganizationId() != null) {
-            jgen.writeStringField("organizationId", String.valueOf(src.getOrganizationId()));
+        if (src.getOrganization() != null) {
+            jgen.writeStringField("organization", src.getOrganization());
         }
         if (src.getVersion() != null) {
             jgen.writeStringField("version", String.valueOf(src.getVersion()));
