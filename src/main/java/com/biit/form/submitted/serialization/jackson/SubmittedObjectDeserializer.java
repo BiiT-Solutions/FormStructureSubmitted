@@ -118,6 +118,9 @@ public class SubmittedObjectDeserializer<T extends SubmittedObject> extends StdD
                  | NoSuchMethodException e) {
             FormStructureLogger.errorMessage(this.getClass().getName(), e);
             throw new RuntimeException(e);
+        } catch (NullPointerException e) {
+            FormStructureLogger.severe(this.getClass().getName(), "Malformed element '" + jsonObject.toPrettyString() + "'.");
+            return null;
         }
     }
 }
