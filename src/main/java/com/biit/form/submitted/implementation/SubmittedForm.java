@@ -131,6 +131,7 @@ public class SubmittedForm extends SubmittedObject implements ISubmittedForm {
         this.submittedBy = submittedBy;
     }
 
+    @Override
     public LocalDateTime getSubmittedAt() {
         return submittedAt;
     }
