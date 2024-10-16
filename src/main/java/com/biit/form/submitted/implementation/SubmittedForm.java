@@ -27,7 +27,6 @@ public class SubmittedForm extends SubmittedObject implements ISubmittedForm {
 
     public SubmittedForm() {
         super();
-        this.submittedAt = LocalDateTime.now();
     }
 
     public SubmittedForm(String applicationName, String formName) {
