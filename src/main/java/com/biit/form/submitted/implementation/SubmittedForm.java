@@ -9,6 +9,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @JsonDeserialize(using = com.biit.form.submitted.serialization.jackson.SubmittedFormDeserializer.class)
@@ -22,9 +23,11 @@ public class SubmittedForm extends SubmittedObject implements ISubmittedForm {
     private Integer version;
     private String organization;
     private String submittedBy;
+    private LocalDateTime submittedAt;
 
     public SubmittedForm() {
         super();
+        this.submittedAt = LocalDateTime.now();
     }
 
     public SubmittedForm(String applicationName, String formName) {
@@ -127,5 +130,13 @@ public class SubmittedForm extends SubmittedObject implements ISubmittedForm {
 
     public void setSubmittedBy(String submittedBy) {
         this.submittedBy = submittedBy;
+    }
+
+    public LocalDateTime getSubmittedAt() {
+        return submittedAt;
+    }
+
+    public void setSubmittedAt(LocalDateTime submittedAt) {
+        this.submittedAt = submittedAt;
     }
 }
