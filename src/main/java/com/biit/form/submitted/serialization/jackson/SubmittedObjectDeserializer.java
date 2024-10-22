@@ -83,6 +83,18 @@ public class SubmittedObjectDeserializer<T extends SubmittedObject> extends StdD
         return null;
     }
 
+    protected LocalDateTime parseLocalDateTime(String name, JsonNode jsonObject) {
+        if (jsonObject != null && jsonObject.get(name) != null) {
+            final String value = jsonObject.get(name).asText();
+            try {
+                return LocalDateTime.from(TIMESTAMP_FORMATTER.parse(value));
+            } catch (Exception e2) {
+                return LocalDateTime.from(OLD_TIMESTAMP_FORMATTER.parse(value));
+            }
+        }
+        return null;
+    }
+
     protected Long parseLong(String name, JsonNode jsonObject) {
         if (jsonObject != null && jsonObject.get(name) != null) {
             return jsonObject.get(name).longValue();
