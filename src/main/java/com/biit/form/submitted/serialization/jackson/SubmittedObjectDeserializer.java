@@ -20,6 +20,8 @@ public class SubmittedObjectDeserializer<T extends SubmittedObject> extends StdD
     private static final DateTimeFormatter TIMESTAMP_FORMATTER = DateTimeFormatter.ofPattern(TIMESTAMP_FORMAT);
     private static final String OLD_TIMESTAMP_FORMAT = "MMM d, yyyy h:mm:ss a";
     private static final DateTimeFormatter OLD_TIMESTAMP_FORMATTER = DateTimeFormatter.ofPattern(OLD_TIMESTAMP_FORMAT);
+    private static final String STANDARD_TIMESTAMP_FORMAT = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'";
+    private static final DateTimeFormatter STANDARD_TIMESTAMP_FORMATTER = DateTimeFormatter.ofPattern(STANDARD_TIMESTAMP_FORMAT);
 
     private final Class<T> specificClass;
 
@@ -65,7 +67,7 @@ public class SubmittedObjectDeserializer<T extends SubmittedObject> extends StdD
 
     protected Timestamp parseTimestamp(String name, JsonNode jsonObject) {
         if (jsonObject != null && jsonObject.get(name) != null) {
-            final String value = jsonObject.get(name).toString();
+            final String value = jsonObject.get(name).asText();
             try {
                 return Timestamp.valueOf(value);
             } catch (Exception e) {
@@ -75,7 +77,11 @@ public class SubmittedObjectDeserializer<T extends SubmittedObject> extends StdD
                     try {
                         return Timestamp.valueOf(LocalDateTime.from(TIMESTAMP_FORMATTER.parse(value)));
                     } catch (Exception e3) {
-                        return new Timestamp(new Date().getTime());
+                        try {
+                            return Timestamp.valueOf(LocalDateTime.from(STANDARD_TIMESTAMP_FORMATTER.parse(value)));
+                        } catch (Exception e4) {
+                            return new Timestamp(new Date().getTime());
+                        }
                     }
                 }
             }
