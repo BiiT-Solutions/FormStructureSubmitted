@@ -95,7 +95,15 @@ public class SubmittedObjectDeserializer<T extends SubmittedObject> extends StdD
             try {
                 return LocalDateTime.from(TIMESTAMP_FORMATTER.parse(value));
             } catch (Exception e2) {
-                return LocalDateTime.from(OLD_TIMESTAMP_FORMATTER.parse(value));
+                try {
+                    return LocalDateTime.from(OLD_TIMESTAMP_FORMATTER.parse(value));
+                } catch (Exception e3) {
+                    try {
+                        return LocalDateTime.from(STANDARD_TIMESTAMP_FORMATTER.parse(value));
+                    } catch (Exception e4) {
+                        FormStructureLogger.warning(this.getClass().getName(), "Invalid date time '" + value + "'.");
+                    }
+                }
             }
         }
         return null;
