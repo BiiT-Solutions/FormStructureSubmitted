@@ -10,6 +10,16 @@ public class SubmittedSystemField extends SubmittedObject implements ISubmittedS
 
     private String value;
 
+    public SubmittedSystemField() {
+        super();
+    }
+
+    public SubmittedSystemField(String tag) {
+        super();
+        setTag(tag);
+        setText(tag);
+    }
+
     @Override
     public String getValue() {
         return value;

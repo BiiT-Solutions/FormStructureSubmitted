@@ -13,7 +13,7 @@ public class SubmittedQuestion extends SubmittedObject implements ISubmittedQues
     private Set<String> answers;
 
     public SubmittedQuestion() {
-
+        super();
     }
 
     public SubmittedQuestion(String tag) {
